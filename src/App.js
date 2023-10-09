@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+// import logo from "./logo.svg";
+import Header from "./components/Header";
+import Nav from "./components/Nav";
+import Article from "./components/Article";
+import "./App.css";
 
 function App() {
+  const topices = [
+    { id: 1, title: "html", body: "html" },
+    { id: 2, title: "css", body: "css" },
+    { id: 3, title: "js", body: "js" },
+  ];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header
+        title="WEB"
+        onChangeMode={() => {
+          alert("Header");
+        }}
+      ></Header>
+      <Nav
+        topices={topices}
+        onChangeMode={(id) => {
+          alert(id);
+        }}
+      ></Nav>
+      <Article title="Welcome" body="Hello, WEB"></Article>
     </div>
   );
 }
